@@ -1,14 +1,14 @@
 // Copyright 2022 NNTU-CS
 #ifndef INCLUDE_TPQUEUE_H_
 #define INCLUDE_TPQUEUE_H_
-
+#include <string>
 template<typename T, int size>
 class TPQueue {
   // реализация шаблона очереди с приоритетом на кольцевом буфере
-  private:
-    T arr[size];
+   private:
+    T arr[100];
     int first, last;
-public:
+ public:
     TPQueue() : first(0), last(0) { }
     void push(T x) {
         if (last - first >= size) {
@@ -20,7 +20,7 @@ public:
             }
             arr[(y++) % size] = x;
             }
- T pop() {
+            T pop() {
         return arr[(first++) % size];
     }
     int getSize() {
@@ -34,7 +34,7 @@ public:
         }
     }
     T back() {
-        if (first < last){
+        if (first < last) {
             return arr[last - 1];
         } else {
             throw std::string("Empty!");
