@@ -21,6 +21,7 @@ class TPQueue {
             arr[(y + 1) % size] = x;
             last++;
             }
+            }
             T pop() {
         return arr[(first++) % size];
     }
